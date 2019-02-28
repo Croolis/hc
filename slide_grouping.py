@@ -7,7 +7,7 @@ def group(photos):
 	used_photos = set()
 	total_score = 0
 	for photo in photos:
-		if photo in used_photo:
+		if photo in used_photos:
 			continue
 
 		used_photo = None
