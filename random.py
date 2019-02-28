@@ -1,4 +1,3 @@
-import numpy as np
 from time import time
 
 from solution import Photo, read_file
@@ -40,7 +39,3 @@ def random_solution(photos, best_res=None, tries=10):
             freeze_answer(photos, best_res, 'bibib1')
 
         np.random.shuffle(photos)
-
-
-photos = read_file('data/b_lovely_landscapes.txt')
-random_solution(photos)
