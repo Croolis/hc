@@ -13,8 +13,8 @@ def group(photos):
 		used_photo = None
 		max_score = -1
 
-		for unused_photo in unused_photos:
-			current_score = score(photo, used_photo)
+		for unused_photo in unused_photos: 
+			current_score = score(photo, unused_photo)
 			if current_score > max_score:
 				max_score = current_score
 				used_photo = unused_photo
@@ -22,7 +22,7 @@ def group(photos):
 		final_slides.append(used_photo)
 		total_score += max_score
 		unused_photos.remove(used_photo)
-		used_photos.append(used_photo)
+		used_photos = used_photos.union({used_photo}) 
 
 	print(total_score)
 	return final_slides
