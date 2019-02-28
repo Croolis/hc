@@ -4,7 +4,7 @@ from time import time
 from solution import Photo, read_file
 
 
-def score(photo1: Photo, photo2: Photo):
+def score(photo1, photo2):
     s1 = photo1.get_tags()
     s2 = photo2.get_tags()
     a1 = len(s1 - s2)
@@ -14,12 +14,12 @@ def score(photo1: Photo, photo2: Photo):
     return min(a3, min(a1, a2))
 
 
-def freeze_answer(photos, res, filename=None):
+def freeze_answer(photos, filename=None):
     if filename is None:
         filename = str(int(time()))
 
     out = open(filename, 'w')
-    out.write(str(res) + '\n')
+    out.write(str(len(photos)) + '\n')
     for photo in photos:
         out.write(photo.get_id() + '\n')
 
@@ -42,5 +42,5 @@ def random_solution(photos, best_res=None, tries=10):
         np.random.shuffle(photos)
 
 
-photos = read_file('data/a_example.txt')
+photos = read_file('data/b_lovely_landscapes.txt')
 random_solution(photos)
